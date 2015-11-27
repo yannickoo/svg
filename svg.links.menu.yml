@@ -1,0 +1,5 @@
+svg.configuration_form:
+  title: 'SVG'
+  description: 'Configure settings and path mappings for the SVG file rendering.'
+  parent: system.admin_config_media
+  route_name: svg.svg_config_form

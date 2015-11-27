@@ -1,0 +1,14 @@
+{
+  "name": "drupal/svg",
+  "type": "drupal-module",
+  "description": "Configure settings and path mappings for SVG file rendering",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "http://drupal.org/project/svg",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/svg",
+    "source": "http://cgit.drupalcode.org/svg"
+  },
+  "require": { }
+}

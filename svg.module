@@ -1,0 +1,33 @@
+<?php
+
+/**
+ * @file
+ * Contains svg.module..
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function svg_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the svg module.
+    case 'help.page.svg':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Configure settings and path mappings for SVG file rendering') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function svg_theme() {
+  $theme = [];
+
+  return $theme;
+}
