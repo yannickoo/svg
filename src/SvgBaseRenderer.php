@@ -31,13 +31,16 @@ class SvgBaseRenderer {
       $path = $this->mappings[$path]['path'];
     }
 
-    // Support for the @themeName token in the path.
+    // Support for the @project token in the path.
     preg_match('/@([^\/]+)/', $path, $matches);
     if (count($matches)) {
-      $theme_name = $matches[1];
-      $theme_path = drupal_get_path('theme', $theme_name);
-      if (strlen($theme_path) > 0) {
-        $path = str_replace('@' . $theme_name, $theme_path, $path);
+      $project_name = $matches[1];
+      $module_path = drupal_get_path('module', $project_name);
+      $theme_path = drupal_get_path('theme', $project_name);
+      $project_path = $theme_path ? $theme_path : $module_path;
+
+      if ($project_path) {
+        $path = str_replace('@' . $project_name, $project_path, $path);
       }
     }
 
