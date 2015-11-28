@@ -10,12 +10,12 @@ class SvgTwigExtension extends \Twig_Extension {
    * {@inheritdoc}
    */
   public function getFilters() {
-    return array(
-      new \Twig_SimpleFilter('SVG', array(
-        $this,
+    return [
+      new \Twig_SimpleFilter('svg', [
+        new SvgImageRenderer(),
         'generateSvgImage'
-      ), ['is_safe' => ['html']]),
-    );
+      ], ['is_safe' => ['html']]),
+    ];
   }
 
   /**
@@ -25,11 +25,6 @@ class SvgTwigExtension extends \Twig_Extension {
     return 'svg.twig.svg_extension';
   }
 
-  public function generateSvgImage($uri, $config = []) {
-    $renderer = new SvgImageRenderer();
-
-    return $renderer->generateSvgImage($uri, $config);
-  }
 }
 //
 //

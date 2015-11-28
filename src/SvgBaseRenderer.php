@@ -22,6 +22,11 @@ class SvgBaseRenderer
   protected function parseSvg($uri) {
     list($path, $identifier) = explode('#', $uri);
 
+    // Resolve Path
+    if (isset($this->mappings[$path])) {
+      $path = $this->mappings[$path]['path'];
+    }
+
     // Support for the @themeName token in the path.
     preg_match('/@([^\/]+)/', $path, $matches);
     if (count($matches)) {
@@ -32,17 +37,11 @@ class SvgBaseRenderer
       }
     }
 
-    // Resolve Path
-    $href = $path;
-    if (isset($this->mappings[$path])) {
-      $path = $this->mappings[$path]['path'];
-
-      // Replace url replacements.
-      if (!empty($this->mappings[$path]['replacement'])) {
-        $href = $this->mappings[$path]['replacement'];
-      } else {
-        $href = '/' . $path;
-      }
+    // Replace URL replacements.
+    if (!empty($this->mappings[$path]['replacement'])) {
+      $href = $this->mappings[$path]['replacement'];
+    } else {
+      $href = base_path() . $path;
     }
     if (strlen($identifier) > 0) {
       $href .= '#' . $identifier;

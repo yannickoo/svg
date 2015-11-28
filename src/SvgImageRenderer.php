@@ -5,9 +5,10 @@ namespace Drupal\svg;
 class SvgImageRenderer extends SvgBaseRenderer
 {
   /**
-   * Resolves the path to the svg file by replacing @theme tokens and name mappings.
+   * Generate simple SVG image tag.
    *
-   * @param $path
+   * @param string $uri
+   * @param array $config
    * @return mixed
    */
   public function generateSvgImage($uri, $config = []) {
@@ -15,7 +16,7 @@ class SvgImageRenderer extends SvgBaseRenderer
       'offsetX' => 0,
       'offsetY' => 0,
       'class' => '',
-      'alt' => ''
+      'alt' => '',
     ];
 
     $config = array_merge($default, (array) $config);
@@ -23,9 +24,13 @@ class SvgImageRenderer extends SvgBaseRenderer
     $this->parseSvg($uri);
 
     $image = $this->dom->createElement('img');
-    $image->setAttribute('class', $config['class']);
-    if (!empty($config['alt'])) {
-      $image->setAttribute('alt', $config['alt']);
+    $image->setAttribute('src', $this->href);
+
+    // Adding attributes to image tag.
+    foreach (['class', 'alt'] as $attribute) {
+      if (!empty($config[$attribute])) {
+        $image->setAttribute($attribute, $config[$attribute]);
+      }
     }
 
     $this->dom->appendChild($image);
