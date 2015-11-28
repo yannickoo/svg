@@ -1,9 +1,9 @@
 <?php
 
-namespace Drupal\Svg;
+namespace Drupal\svg;
 
 use Symfony\Component\DomCrawler\Crawler;
-use Drupal\Svg\SvgImageRenderer;
+use Drupal\svg\SvgImageRenderer;
 
 class SvgTwigExtension extends \Twig_Extension {
   /**

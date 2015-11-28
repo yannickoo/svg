@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Svg;
+namespace Drupal\svg;
 
 class SvgImageRenderer extends SvgBaseRenderer
 {
@@ -29,10 +29,6 @@ class SvgImageRenderer extends SvgBaseRenderer
     }
 
     $this->dom->appendChild($image);
-
-    xdebug_break();
-
-    dpm('hallo');
 
     return $this->dom->saveHTML();
   }

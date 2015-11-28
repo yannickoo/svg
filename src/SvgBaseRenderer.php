@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Svg;
+namespace Drupal\svg;
 
 class SvgBaseRenderer
 {
