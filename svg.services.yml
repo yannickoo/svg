@@ -1,0 +1,6 @@
+services:
+  svg.twig.svg_extension:
+    class: Drupal\svg\SvgTwigExtension
+    arguments: []
+    tags:
+      - { name: twig.extension }
