@@ -1,5 +1,6 @@
 name: SVG
 type: module
-description: Provides a set of twig filters to render SVG files.
+description: Provides a set of Twig filters to render SVG files.
 core: 8.x
 package: Media
+configure: svg.configuration

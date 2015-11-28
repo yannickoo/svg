@@ -1,8 +1,8 @@
-svg.svg_config_form:
+svg.configuration:
   path: '/admin/config/svg/config'
   defaults:
     _form: '\Drupal\svg\Form\ConfigForm'
-    _title: 'ConfigForm'
+    _title: 'SVG'
   requirements:
     _permission: 'access administration pages'
   options:

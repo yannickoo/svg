@@ -26,7 +26,8 @@ class SvgTwigExtension extends \Twig_Extension {
   }
 
   public function generateSvgImage($uri, $config = []) {
-    $renderer = new \Drupal\Svg\SvgImageRenderer();
+    $renderer = new SvgImageRenderer();
+
     return $renderer->generateSvgImage($uri, $config);
   }
 }
