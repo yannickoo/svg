@@ -11,17 +11,17 @@ class SvgImageRenderer extends SvgBaseRenderer
    * @param array $config
    * @return mixed
    */
-  public function generateSvgImage($uri, $config = []) {
-    $default = [
+  public function generate($uri, $options = []) {
+    $defaults = [
       'offsetX' => 0,
       'offsetY' => 0,
       'class' => '',
       'alt' => '',
     ];
 
-    $config = array_merge($default, (array) $config);
+    $options = array_merge($defaults, (array) $options);
 
-    $this->parseSvg($uri);
+    $this->resolveUri($uri);
 
     $image = $this->dom->createElement('img');
     $image->setAttribute('src', $this->href);

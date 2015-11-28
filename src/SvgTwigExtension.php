@@ -10,11 +10,17 @@ class SvgTwigExtension extends \Twig_Extension {
    * {@inheritdoc}
    */
   public function getFilters() {
+    $options = ['is_safe' => ['html']];
+
     return [
       new \Twig_SimpleFilter('svg', [
         new SvgImageRenderer(),
-        'generateSvgImage'
-      ], ['is_safe' => ['html']]),
+        'generate'
+      ], $options),
+      new \Twig_SimpleFilter('inline_svg', [
+        new SvgInlineImageRenderer(),
+        'generate'
+      ], $options),
     ];
   }
 
@@ -53,25 +59,7 @@ class SvgTwigExtension extends \Twig_Extension {
 //      return '';
 //    }
 //
-//    $crawler = new Crawler($svg);
 //
-//    if (strlen($identifier) > 0) {
-//      $item = $crawler->filter('#' . $identifier);
-//    } else {
-//      $item = $crawler;
-//    }
-//
-//    if (!$item->count()) {
-//      drupal_set_message('Cannot find SVG element for ' . $uri);
-//      return '';
-//    }
-//
-//    $viewBox = $item->attr('viewBox');
-//
-//    if (strlen($viewBox) == 0) {
-//      drupal_set_message('Cannot find viewBox attribute in ' . $uri);
-//      return '';
-//    }
 //
 //    // Build markup
 //    list($x, $y, $width, $height) = explode(' ', $viewBox);
