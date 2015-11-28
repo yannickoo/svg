@@ -13,10 +13,7 @@ class SvgImageRenderer extends SvgBaseRenderer
    */
   public function generate($uri, $options = []) {
     $defaults = [
-      'offsetX' => 0,
-      'offsetY' => 0,
-      'class' => '',
-      'alt' => '',
+      'attributes' => [],
     ];
 
     $options = array_merge($defaults, (array) $options);
@@ -26,10 +23,10 @@ class SvgImageRenderer extends SvgBaseRenderer
     $image = $this->dom->createElement('img');
     $image->setAttribute('src', $this->href);
 
-    // Adding attributes to image tag.
-    foreach (['class', 'alt'] as $attribute) {
-      if (!empty($config[$attribute])) {
-        $image->setAttribute($attribute, $config[$attribute]);
+    // Setting image attributes.
+    foreach ($options['attributes'] as $attribute => $value) {
+      if ($value) {
+        $image->setAttribute($attribute, $value);
       }
     }
 

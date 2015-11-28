@@ -15,11 +15,17 @@ class SvgInlineImageRenderer extends SvgBaseRenderer
     $defaults = [
       'adjustWidth' => 0,
       'adjustHeight' => 0,
-      'width' => NULL,
-      'height' => NULL,
-      'x' => NULL,
-      'y' => NULL,
-      'class' => '',
+      'attributes' => [
+        'width' => NULL,
+        'height' => NULL,
+        'class' => '',
+      ],
+      'viewBox' => [
+        'width' => NULL,
+        'height' => NULL,
+        'x' => NULL,
+        'y' => NULL,
+      ],
     ];
 
     $options = array_merge($defaults, (array) $options);
@@ -35,8 +41,8 @@ class SvgInlineImageRenderer extends SvgBaseRenderer
 
     // Manipulate viewBox for given options.
     foreach (['x', 'y', 'width', 'height'] as $type) {
-      if ($options[$type] !== NULL) {
-        $view_box[$type] = $options[$type];
+      if ($options['viewBox'][$type] !== NULL) {
+        $view_box[$type] = $options['viewBox'][$type];
       }
     }
 
@@ -49,6 +55,13 @@ class SvgInlineImageRenderer extends SvgBaseRenderer
       $view_box_attr = implode(' ', $view_box);
 
       $svg->setAttribute('viewBox', $view_box_attr);
+    }
+
+    // Setting SVG attributes.
+    foreach ($options['attributes'] as $attribute => $value) {
+      if ($value) {
+        $svg->setAttribute($attribute, $value);
+      }
     }
 
     $content = $dom->createDocumentFragment();
