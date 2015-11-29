@@ -1,0 +1,4 @@
+name: 'SVG test module'
+type: module
+description: 'Support module for SVG testing.'
+package: Testing

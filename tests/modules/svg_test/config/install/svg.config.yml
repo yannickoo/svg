@@ -1,0 +1,3 @@
+mappings:
+  logo:
+    path: '@svg_test/assets/drupal8.svg'
