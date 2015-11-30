@@ -37,8 +37,19 @@ class SvgBaseRenderer {
     preg_match('/@([^\/]+)/', $path, $matches);
     if (count($matches)) {
       $project_name = $matches[1];
-      $module_path = drupal_get_path('module', $project_name);
-      $theme_path = '';//drupal_get_path('theme', $project_name);
+
+      try {
+        $module_path = drupal_get_path('module', $project_name);
+      } catch (\Exception $e) {
+        $module_path = '';
+      }
+
+      try {
+        $theme_path = drupal_get_path('theme', $project_name);
+      } catch (\Exception $e) {
+        $theme_path = '';
+      }
+
       $project_path = $theme_path ? $theme_path : $module_path;
 
       if ($project_path) {
