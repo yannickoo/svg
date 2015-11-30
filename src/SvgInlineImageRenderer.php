@@ -1,15 +1,24 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\svg\SvgInlineImageRenderer.
+ */
+
 namespace Drupal\svg;
 
-class SvgInlineImageRenderer extends SvgBaseRenderer
-{
+class SvgInlineImageRenderer extends SvgBaseRenderer {
+
   /**
-   * Generate simple SVG image tag.
+   * Renders an inline SVG image.
    *
    * @param string $uri
-   * @param array $config
-   * @return mixed
+   *   URI of SVG image which should be rendered.
+   * @param array $options
+   *   Options passed to renderer.
+   *
+   * @return string
+   *   HTML code for SVG image.
    */
   public function generate($uri, $options = []) {
     $defaults = [

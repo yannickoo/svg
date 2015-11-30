@@ -1,11 +1,17 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\svg\SwigTwigExtension.
+ */
+
 namespace Drupal\svg;
 
 use Symfony\Component\DomCrawler\Crawler;
 use Drupal\svg\SvgImageRenderer;
 
 class SvgTwigExtension extends \Twig_Extension {
+
   /**
    * {@inheritdoc}
    */

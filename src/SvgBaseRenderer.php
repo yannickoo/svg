@@ -1,16 +1,63 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\svg\SvgBaseRenderer.
+ */
+
 namespace Drupal\svg;
 
 use Symfony\Component\DomCrawler\Crawler;
 
 class SvgBaseRenderer {
+
+  /**
+   * An array containing mapping configuration.
+   *
+   * @var array
+   */
   protected $mappings;
+
+  /**
+   * The URI of the image.
+   *
+   * @var string
+   */
   protected $uri = '';
+
+  /**
+   * The path of the SVG (with base path included).
+   *
+   * @var string
+   */
   protected $href = '';
+
+  /**
+   * The path of the image.
+   *
+   * @var string
+   */
   protected $path = '';
+
+  /**
+   * The requested identifier of the target element.
+   *
+   * @var string
+   */
   protected $identifier = '';
+
+  /**
+   * The viewBox of the SVG.
+   *
+   * @var array
+   */
   protected $viewBox = [];
+
+  /**
+   * A Crawler object containing target element.
+   *
+   * @var \Symfony\Component\DomCrawler\Crawler
+   */
   protected $svgContent;
 
   /**
@@ -21,14 +68,24 @@ class SvgBaseRenderer {
     $this->mappings = $config->get('mappings');
   }
 
+  /**
+   * Resolves URI and sets object properties.
+   *
+   * @param string $uri
+   *   The URI of the image.
+   *
+   * @return void
+   */
   protected function resolveUri($uri) {
     $path = $uri;
     $identifier = '';
-    if (strpos($uri, '#') !== false) {
+
+    // Split URI into path and identifier if it contains "#".
+    if (strpos($uri, '#') !== FALSE) {
       list($path, $identifier) = explode('#', $uri);
     }
 
-    // Resolve Path
+    // Get mapping entry path.
     if (isset($this->mappings[$path])) {
       $path = $this->mappings[$path]['path'];
     }
@@ -57,6 +114,11 @@ class SvgBaseRenderer {
     $this->identifier = $identifier;
   }
 
+  /**
+   * Parses SVG file for target element.
+   *
+   * @return bool
+   */
   protected function parse() {
     $svg = file_get_contents(DRUPAL_ROOT . '/' . $this->path);
 

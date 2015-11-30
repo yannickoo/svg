@@ -1,17 +1,26 @@
 <?php
 
+/**
+ * @file
+ * Contains \Drupal\svg\SvgImageRenderer.
+ */
+
 namespace Drupal\svg;
 
 use Drupal\Core\Template\Attribute;
 
-class SvgImageRenderer extends SvgBaseRenderer
-{
+class SvgImageRenderer extends SvgBaseRenderer {
+
   /**
    * Generate simple SVG image tag.
    *
    * @param string $uri
+   *   URI of SVG image which should be rendered.
    * @param array $options
-   * @return mixed
+   *   Options passed to renderer.
+   *
+   * @return string
+   *   HTML code for SVG image.
    */
   public function generate($uri, $options = []) {
     $defaults = ['attributes' => []];
