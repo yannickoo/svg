@@ -42,11 +42,11 @@ class SvgImageRendererKernelTest extends KernelTestBase {
   public function testGenerate() {
     $svg_image = new SvgImageRenderer();
     $svg_test_path = drupal_get_path('module', 'svg_test');
-    $expected_result = '<img src="' . base_path() . $svg_test_path . '/assets/drupal8.svg">';
+    $expected_result = '<img src="' . base_path() . $svg_test_path . '/assets/icons/drupal-8.svg">';
 
     $assert_shortcut = $svg_image->generate('logo');
-    $assert_token = $svg_image->generate('@svg_test/assets/drupal8.svg');
-    $assert_path = $svg_image->generate($svg_test_path . '/assets/drupal8.svg');
+    $assert_token = $svg_image->generate('@svg_test/assets/icons/drupal-8.svg');
+    $assert_path = $svg_image->generate($svg_test_path . '/assets/icons/drupal-8.svg');
 
     $this->assertEquals($expected_result, $assert_shortcut, 'mapping');
     $this->assertEquals($expected_result, $assert_token, 'token');
