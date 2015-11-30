@@ -32,7 +32,7 @@ class ConfigForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function getFormId() {
-    return 'svg_config_form';
+    return 'svg_config';
   }
 
   /**
