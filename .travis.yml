@@ -8,7 +8,7 @@ env:
   global:
     - MODULE_NAME='svg'
     - MODULE_TEST_GROUP='svg'
-    - DRUPAL_REPO='git://github.com/yannickoo/svg.git'
+    - DRUPAL_REPO='git://drupalcode.org/project/drupal.git'
     - DRUPAL_VERSION='8.0.x'
     - PHPCS_VERSION='2.0.*@dev'
     - CODER_VERSION='8.2.0-beta1'
