@@ -1,3 +1,5 @@
+sudo: false
+
 language: php
 
 php:
@@ -14,9 +16,6 @@ env:
     - CODER_VERSION='8.2.0-beta1'
 
 before_install:
-  # Ensure we have the latest sources.
-  - sudo apt-get -y update
-
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
   - source $HOME/.bashrc
@@ -36,10 +35,13 @@ before_install:
   # Ensure the PHP environment is ready.
   - phpenv rehash
 
-install:
-  # Basic PHP packages.
-  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
+addons:
+  apt:
+    packages:
+    - php5-cgi
+    - php5-mysql
 
+install:
   # Move the checked out module into the correct structure.
   - mkdir /tmp/$MODULE_NAME
   - mv * /tmp/$MODULE_NAME/
