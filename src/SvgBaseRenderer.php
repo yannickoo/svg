@@ -116,6 +116,7 @@ class SvgBaseRenderer {
    * Parses SVG file for target element.
    *
    * @return bool
+   *   Whether parsing was successful or not.
    */
   protected function parse() {
     $svg = file_get_contents(DRUPAL_ROOT . '/' . $this->path);

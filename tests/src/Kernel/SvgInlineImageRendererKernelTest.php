@@ -43,6 +43,8 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
   }
 
   /**
+   * Tests inline SVG rendering.
+   *
    * @covers ::generate
    */
   public function testGenerate() {
