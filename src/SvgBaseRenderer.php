@@ -57,13 +57,7 @@ class SvgBaseRenderer {
       }
     }
 
-    // Replace URL replacements.
-    if (!empty($this->mappings[$path]['replacement'])) {
-      $href = $this->mappings[$path]['replacement'];
-    }
-    else {
-      $href = base_path() . $path;
-    }
+    $href = base_path() . $path;
     if (strlen($identifier) > 0) {
       $href .= '#' . $identifier;
     }
