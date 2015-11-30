@@ -15,6 +15,17 @@ env:
     - PHPCS_VERSION='2.0.*@dev'
     - CODER_VERSION='8.2.0-beta1'
 
+addons:
+  apt:
+    packages:
+    - php5-cgi
+    - php5-mysql
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
+
 before_install:
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
@@ -34,12 +45,6 @@ before_install:
 
   # Ensure the PHP environment is ready.
   - phpenv rehash
-
-addons:
-  apt:
-    packages:
-    - php5-cgi
-    - php5-mysql
 
 install:
   # Move the checked out module into the correct structure.
