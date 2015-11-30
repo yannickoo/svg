@@ -40,7 +40,9 @@ class SvgInlineImageRenderer extends SvgBaseRenderer {
     $options = array_merge($defaults, (array) $options);
 
     $this->resolveUri($uri);
-    $this->parse($uri);
+    if (!$this->parse($uri)) {
+      return '';
+    }
 
     // Create new DOM document for inline SVG.
     $dom = new \DOMDocument();
@@ -73,13 +75,11 @@ class SvgInlineImageRenderer extends SvgBaseRenderer {
       }
     }
 
-    if ($this->svgContent) {
-      $content = $dom->createDocumentFragment();
-      $content->appendXML($this->svgContent->html());
-      $svg->appendChild($content);
+    $content = $dom->createDocumentFragment();
+    $content->appendXML($this->svgContent->html());
+    $svg->appendChild($content);
 
-      $dom->appendChild($svg);
-    }
+    $dom->appendChild($svg);
 
     return trim($dom->saveHTML());
   }

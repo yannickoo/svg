@@ -119,7 +119,14 @@ class SvgBaseRenderer {
    *   Whether parsing was successful or not.
    */
   protected function parse() {
-    $svg = file_get_contents(DRUPAL_ROOT . '/' . $this->path);
+    $path = DRUPAL_ROOT . '/' . $this->path;
+
+    if (!file_exists($path)) {
+      drupal_set_message('File ' . $this->path . ' does not exist', 'warning');
+      return FALSE;
+    }
+
+    $svg = file_get_contents($path);
 
     $crawler = new Crawler();
     $crawler->addXmlContent($svg);

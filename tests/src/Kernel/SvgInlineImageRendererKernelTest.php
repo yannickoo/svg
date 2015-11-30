@@ -123,6 +123,11 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
       ]
     );
     $this->assertEquals($expected_result, $result, 'inline svg rendering with all manipulation techniques');
+
+    // Test if generator returns an empty string if svg file can not be found.
+    $expected_result = '';
+    $result = $svg_inline_image->generate('@svg_test/assets/icons/not-existing-icon.svg');
+    $this->assertEquals($expected_result, $result, 'test behaviour for not existing files');
   }
 
 }
