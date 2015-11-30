@@ -80,7 +80,7 @@ class SvgBaseRenderer {
       return FALSE;
     }
 
-    // Read viewbox
+    // Get SVG viewBox attribute.
     $view_box = $item->attr('viewBox');
 
     if (!$view_box) {
