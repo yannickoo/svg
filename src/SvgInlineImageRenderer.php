@@ -64,11 +64,13 @@ class SvgInlineImageRenderer extends SvgBaseRenderer
       }
     }
 
-    $content = $dom->createDocumentFragment();
-    $content->appendXML($this->svgContent->html());
-    $svg->appendChild($content);
+    if ($this->svgContent) {
+      $content = $dom->createDocumentFragment();
+      $content->appendXML($this->svgContent->html());
+      $svg->appendChild($content);
 
-    $dom->appendChild($svg);
+      $dom->appendChild($svg);
+    }
 
     return $dom->saveHTML();
   }

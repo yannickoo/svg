@@ -8,7 +8,7 @@ class SvgImageRenderer extends SvgBaseRenderer
    * Generate simple SVG image tag.
    *
    * @param string $uri
-   * @param array $config
+   * @param array $options
    * @return mixed
    */
   public function generate($uri, $options = []) {
