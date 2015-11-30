@@ -27,6 +27,9 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
+  # Disables Xdebug.
+  - phpenv config-rm xdebug.ini
+
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
   - source $HOME/.bashrc
@@ -54,9 +57,6 @@ install:
   - mv /tmp/$MODULE_NAME drupal/modules/
 
 before_script:
-  # Disables Xdebug
-  - phpenv config-rm xdebug.ini
-
   # This fixes a fail when install Drupal.
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
 
