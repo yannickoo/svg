@@ -122,7 +122,7 @@ class SvgBaseRenderer {
     $path = DRUPAL_ROOT . '/' . $this->path;
 
     if (!file_exists($path)) {
-      drupal_set_message('File ' . $this->path . ' does not exist', 'warning');
+      drupal_set_message(t('File @path does not exist', array('@path' => $this->path)), 'warning');
       return FALSE;
     }
 
@@ -138,7 +138,7 @@ class SvgBaseRenderer {
     }
 
     if (!$item->count()) {
-      drupal_set_message('Cannot find SVG element for ' . $this->uri, 'warning');
+      drupal_set_message(t('Cannot find SVG element for @url', array('@url' => $this->uri)), 'warning');
       return FALSE;
     }
 
