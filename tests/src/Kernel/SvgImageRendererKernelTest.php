@@ -51,11 +51,11 @@ class SvgImageRendererKernelTest extends KernelTestBase {
       ],
       [
         'message' => 'Use placeholder in URI',
-        'output' => $svg_image->generate('@svg_test/assets/drupal8.svg'),
+        'output' => $svg_image->generate('@svg_test/assets/icons/drupal-8.svg'),
       ],
       [
         'message' => 'Use path as URI',
-        'output' => $svg_image->generate($svg_test_path . '/assets/drupal8.svg'),
+        'output' => $svg_image->generate($svg_test_path . '/assets/icons/drupal-8.svg'),
       ],
     ];
 
