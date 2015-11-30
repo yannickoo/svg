@@ -72,6 +72,6 @@ class SvgInlineImageRenderer extends SvgBaseRenderer
       $dom->appendChild($svg);
     }
 
-    return $dom->saveHTML();
+    return trim($dom->saveHTML());
   }
 }
