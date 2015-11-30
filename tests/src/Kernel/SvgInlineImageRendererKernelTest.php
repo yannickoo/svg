@@ -12,6 +12,8 @@ use Symfony\Component\DomCrawler\Crawler;
 use Drupal\svg\SvgInlineImageRenderer;
 
 /**
+ * Kernel tests for SVG inline image renderer.
+ *
  * @coversDefaultClass \Drupal\svg\SvgInlineImageRenderer
  * @group svg
  */
@@ -31,6 +33,9 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
    */
   public static $modules = ['svg_test'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
 

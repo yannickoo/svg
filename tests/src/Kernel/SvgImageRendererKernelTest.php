@@ -11,6 +11,8 @@ use Drupal\KernelTests\KernelTestBase;
 use Drupal\svg\SvgImageRenderer;
 
 /**
+ * Kernel tests for SVG image renderer.
+ *
  * @coversDefaultClass \Drupal\svg\SvgImageRenderer
  * @group svg
  */
@@ -30,6 +32,9 @@ class SvgImageRendererKernelTest extends KernelTestBase {
    */
   public static $modules = ['svg_test'];
 
+  /**
+   * {@inheritdoc}
+   */
   protected function setUp() {
     parent::setUp();
 

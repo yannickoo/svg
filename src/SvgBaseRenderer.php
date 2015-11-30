@@ -73,8 +73,6 @@ class SvgBaseRenderer {
    *
    * @param string $uri
    *   The URI of the image.
-   *
-   * @return void
    */
   protected function resolveUri($uri) {
     $path = $uri;
