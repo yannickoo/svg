@@ -62,6 +62,11 @@ class SvgImageRendererKernelTest extends KernelTestBase {
     foreach ($assertions as $assertion) {
       $this->assertEquals($expected_result, $assertion['output'], $assertion['message']);
     }
+
+    // Test if attributes can be set.
+    $result = $svg_image->generate('logo', ['attributes' => ['data-test' => 'test-value']]);
+    $expected_result = '<img data-test="test-value" src="' . base_path() . $svg_test_path . '/assets/icons/drupal-8.svg">';
+    $this->assertEquals($expected_result, $result, 'Add custom attributes to the image element');
   }
 
 }
