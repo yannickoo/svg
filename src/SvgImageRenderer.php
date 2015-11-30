@@ -2,6 +2,8 @@
 
 namespace Drupal\svg;
 
+use Drupal\Core\Template\Attribute;
+
 class SvgImageRenderer extends SvgBaseRenderer
 {
   /**
@@ -12,28 +14,15 @@ class SvgImageRenderer extends SvgBaseRenderer
    * @return mixed
    */
   public function generate($uri, $options = []) {
-    $dom = new \DOMDocument();
-
-    $defaults = [
-      'attributes' => [],
-    ];
-
+    $defaults = ['attributes' => []];
     $options = array_merge($defaults, (array) $options);
 
     $this->resolveUri($uri);
 
-    $image = $dom->createElement('img');
-    $image->setAttribute('src', $this->href);
+    $options['attributes']['src'] = $this->href;
+    // Remove empty attributes.
+    $options['attributes'] = array_filter($options['attributes']);
 
-    // Setting image attributes.
-    foreach ($options['attributes'] as $attribute => $value) {
-      if ($value) {
-        $image->setAttribute($attribute, $value);
-      }
-    }
-
-    $dom->appendChild($image);
-
-    return trim($dom->saveHTML());
+    return '<img' . new Attribute($options['attributes']) . '>';
   }
 }
