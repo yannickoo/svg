@@ -12,6 +12,8 @@ class SvgImageRenderer extends SvgBaseRenderer
    * @return mixed
    */
   public function generate($uri, $options = []) {
+    $dom = new \DOMDocument();
+
     $defaults = [
       'attributes' => [],
     ];
@@ -20,7 +22,7 @@ class SvgImageRenderer extends SvgBaseRenderer
 
     $this->resolveUri($uri);
 
-    $image = $this->dom->createElement('img');
+    $image = $dom->createElement('img');
     $image->setAttribute('src', $this->href);
 
     // Setting image attributes.
@@ -30,8 +32,8 @@ class SvgImageRenderer extends SvgBaseRenderer
       }
     }
 
-    $this->dom->appendChild($image);
+    $dom->appendChild($image);
 
-    return $this->dom->saveHTML();
+    return trim($dom->saveHTML());
   }
 }

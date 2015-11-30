@@ -5,9 +5,7 @@ namespace Drupal\svg;
 use Symfony\Component\DomCrawler\Crawler;
 
 class SvgBaseRenderer {
-  protected $config;
   protected $mappings;
-
   protected $uri = '';
   protected $href = '';
   protected $path = '';
@@ -15,16 +13,20 @@ class SvgBaseRenderer {
   protected $viewBox = [];
   protected $svgContent;
 
-  protected $dom;
-
-  function __construct() {
-    $this->config = \Drupal::config('svg.config');
-    $this->mappings = $this->config->get('mappings');
-    $this->dom = new \DOMDocument();
+  /**
+   * {@inheritdoc}
+   */
+  public function __construct() {
+    $config = \Drupal::config('svg.config');
+    $this->mappings = $config->get('mappings');
   }
 
   protected function resolveUri($uri) {
-    list($path, $identifier) = explode('#', $uri);
+    $path = $uri;
+    $identifier = '';
+    if (strpos($uri, '#') !== false) {
+      list($path, $identifier) = explode('#', $uri);
+    }
 
     // Resolve Path
     if (isset($this->mappings[$path])) {
@@ -36,7 +38,7 @@ class SvgBaseRenderer {
     if (count($matches)) {
       $project_name = $matches[1];
       $module_path = drupal_get_path('module', $project_name);
-      $theme_path = drupal_get_path('theme', $project_name);
+      $theme_path = '';//drupal_get_path('theme', $project_name);
       $project_path = $theme_path ? $theme_path : $module_path;
 
       if ($project_path) {
