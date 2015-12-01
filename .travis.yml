@@ -45,7 +45,7 @@ before_install:
   - phpenv rehash
 
   # Coverage Reports
-  - pip install codecov
+  - pip install --user codecov
 
 install:
   # Basic PHP packages.
