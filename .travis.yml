@@ -44,6 +44,9 @@ before_install:
   # Ensure the PHP environment is ready.
   - phpenv rehash
 
+  # Coverage Reports
+  - pip install codecov
+
 install:
   # Basic PHP packages.
   - sudo apt-get install -y --force-yes php5-cgi php5-mysql
@@ -86,3 +89,6 @@ script:
   - TEST_OUTPUT=$(! egrep -i "([0-9]+ fails)|(PHP Fatal error)|([0-9]+ exceptions)" /tmp/test.txt > /dev/null)$?; echo $TEST_OUTPUT
   # Exit the build
   - if [ $TEST_EXIT -eq 0 ] && [ $TEST_OUTPUT -eq 0 ]; then exit 0; else exit 1; fi
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
