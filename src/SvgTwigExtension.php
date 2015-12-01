@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\svg\SwigTwigExtension.
+ * Contains \Drupal\svg\SvgTwigExtension.
  */
 
 namespace Drupal\svg;
