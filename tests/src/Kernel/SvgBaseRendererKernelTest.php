@@ -71,4 +71,22 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
     }
   }
 
+  /**
+   * Tests SVG parsing.
+   *
+   * @covers ::parse
+   */
+  public function testParse() {
+    $svg_base = new SvgBaseRenderer();
+
+    $svg_base->resolveUri('logo');
+    $this->assertTrue($svg_base->parse(), 'Parse logo');
+
+    $svg_base->resolveUri('logo#foo');
+    $this->assertFalse($svg_base->parse(), 'Parse logo with non-existent identifier');
+
+    $svg_base->resolveUri('@svg_test/assets/stacks/sprite-stack.svg#drupal-8');
+    $this->assertTrue($svg_base->parse(), 'Parse stack with identifier');
+  }
+
 }
