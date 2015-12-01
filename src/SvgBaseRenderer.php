@@ -9,7 +9,7 @@ namespace Drupal\svg;
 
 use Symfony\Component\DomCrawler\Crawler;
 
-class SvgBaseRenderer {
+class SvgBaseRenderer implements SvgRendererInterface {
 
   /**
    * An array containing mapping configuration.
@@ -69,12 +69,9 @@ class SvgBaseRenderer {
   }
 
   /**
-   * Resolves URI and sets object properties.
-   *
-   * @param string $uri
-   *   The URI of the image.
+   * {@inheritdoc}
    */
-  protected function resolveUri($uri) {
+  public function resolveUri($uri) {
     $path = $uri;
     $identifier = '';
 
@@ -110,15 +107,14 @@ class SvgBaseRenderer {
     $this->href = $href;
     $this->path = $path;
     $this->identifier = $identifier;
+
+    return $path;
   }
 
   /**
-   * Parses SVG file for target element.
-   *
-   * @return bool
-   *   Whether parsing was successful or not.
+   * {@inheritdoc}
    */
-  protected function parse() {
+  public function parse() {
     $path = DRUPAL_ROOT . '/' . $this->path;
 
     if (!file_exists($path)) {
@@ -138,7 +134,7 @@ class SvgBaseRenderer {
     }
 
     if (!$item->count()) {
-      drupal_set_message(t('Cannot find SVG element for @url', array('@url' => $this->uri)), 'warning');
+      drupal_set_message(t('Cannot find SVG element for @uri', array('@uri' => $this->uri)), 'warning');
       return FALSE;
     }
 

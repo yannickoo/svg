@@ -33,10 +33,19 @@ class SvgImageRendererKernelTest extends KernelTestBase {
   public static $modules = ['svg_test'];
 
   /**
+   * SVG base renderer.
+   *
+   * @var \Drupal\svg\SvgRendererInterface|\PHPUnit_Framework_MockObject_MockObject
+   */
+  protected $svgRenderer;
+
+  /**
    * {@inheritdoc}
    */
   protected function setUp() {
     parent::setUp();
+
+    $this->svgRenderer = $this->getMock('\Drupal\svg\SvgRendererInterface');
 
     $this->installConfig(['svg_test']);
   }
@@ -51,24 +60,7 @@ class SvgImageRendererKernelTest extends KernelTestBase {
     $svg_test_path = drupal_get_path('module', 'svg_test');
     $expected_result = '<img src="' . base_path() . $svg_test_path . '/assets/icons/drupal-8.svg">';
 
-    $assertions = [
-      [
-        'message' => 'Use image from mapping configuration',
-        'output' => $svg_image->generate('logo'),
-      ],
-      [
-        'message' => 'Use placeholder in URI',
-        'output' => $svg_image->generate('@svg_test/assets/icons/drupal-8.svg'),
-      ],
-      [
-        'message' => 'Use path as URI',
-        'output' => $svg_image->generate($svg_test_path . '/assets/icons/drupal-8.svg'),
-      ],
-    ];
-
-    foreach ($assertions as $assertion) {
-      $this->assertEquals($expected_result, $assertion['output'], $assertion['message']);
-    }
+    $this->assertEquals($expected_result, $svg_image->generate('logo'), 'Use image from mapping configuration');
 
     // Test if attributes can be set.
     $result = $svg_image->generate('logo', ['attributes' => ['data-test' => 'test-value']]);
