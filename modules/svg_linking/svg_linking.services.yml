@@ -1,0 +1,6 @@
+services:
+  svg_linking.twig.svg_linking_extension:
+    class: Drupal\svg_linking\SvgLinkingTwigExtension
+    arguments: []
+    tags:
+      - { name: twig.extension }

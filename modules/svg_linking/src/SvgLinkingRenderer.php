@@ -2,14 +2,14 @@
 
 /**
  * @file
- * Contains \Drupal\svg_linking\SvgLinkedRenderer.
+ * Contains \Drupal\svg_linking\SvgLinkingRenderer.
  */
 
 namespace Drupal\svg_linking;
 
 use Drupal\svg\SvgBaseRenderer;
 
-class SvgLinkedRenderer extends SvgBaseRenderer {
+class SvgLinkingRenderer extends SvgBaseRenderer {
 
   /**
    * Renders an inline SVG image.
