@@ -13,18 +13,15 @@ env:
     - PHPCS_VERSION='2.0.*@dev'
     - CODER_VERSION='8.2.0-beta1'
 
-addons:
-  apt:
-    packages:
-      - php5-cgi
-      - php5-mysql
-
 cache:
   directories:
     - vendor
     - $HOME/.composer/cache
 
 before_install:
+  # Ensure we have the latest sources.
+  - sudo apt-get -y update
+
   # Disables Xdebug.
   - phpenv config-rm xdebug.ini
 
@@ -48,6 +45,9 @@ before_install:
   - phpenv rehash
 
 install:
+  # Basic PHP packages.
+  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
+
   # Move the checked out module into the correct structure.
   - mkdir /tmp/$MODULE_NAME
   - mv * /tmp/$MODULE_NAME/
