@@ -48,7 +48,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
    * @covers ::generate
    */
   public function testGenerate() {
-    $svg_inline_image = new SvgInlineImageRenderer();
+    $svg_renderer = new SvgInlineImageRenderer();
 
     // Read svg file and get its content for comparison.
     $svg = file_get_contents(DRUPAL_ROOT . '/' . drupal_get_path('module', 'svg_test') . '/assets/icons/drupal-8.svg');
@@ -58,12 +58,12 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
 
     // Test plain inline svg rendering.
     $expected_result = '<svg viewBox="' . $view_box . '">' . $crawler->html() . '</svg>';
-    $result = $svg_inline_image->generate('@svg_test/assets/icons/drupal-8.svg');
+    $result = $svg_renderer->generate('@svg_test/assets/icons/drupal-8.svg');
     $this->assertEquals($expected_result, $result, 'inline svg rendering');
 
     // Test inline svg rendering with custom viewBox.
     $expected_result = '<svg viewBox="1 2 3 4">' . $crawler->html() . '</svg>';
-    $result = $svg_inline_image->generate(
+    $result = $svg_renderer->generate(
       '@svg_test/assets/icons/drupal-8.svg',
       [
         'viewBox' => [
@@ -78,7 +78,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
 
     // Test inline svg rendering with custom attributes.
     $expected_result = '<svg viewBox="' . $view_box . '" class="test-class" data-test="test-value">' . $crawler->html() . '</svg>';
-    $result = $svg_inline_image->generate(
+    $result = $svg_renderer->generate(
       '@svg_test/assets/icons/drupal-8.svg',
       [
         'attributes' => [
@@ -95,7 +95,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
     $view_box_array[3] += 100;
 
     $expected_result = '<svg viewBox="' . implode(' ', $view_box_array) . '">' . $crawler->html() . '</svg>';
-    $result = $svg_inline_image->generate(
+    $result = $svg_renderer->generate(
       '@svg_test/assets/icons/drupal-8.svg',
       [
         'adjustWidth' => 50,
@@ -106,7 +106,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
 
     // Combined test of all techniques to ensure the combination is working.
     $expected_result = '<svg viewBox="1 2 53 104" data-test="test-value">' . $crawler->html() . '</svg>';
-    $result = $svg_inline_image->generate(
+    $result = $svg_renderer->generate(
       '@svg_test/assets/icons/drupal-8.svg',
       [
         'adjustWidth' => 50,
@@ -126,7 +126,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
 
     // Test if generator returns an empty string if svg file can not be found.
     $expected_result = '';
-    $result = $svg_inline_image->generate('@svg_test/assets/icons/not-existing-icon.svg');
+    $result = $svg_renderer->generate('@svg_test/assets/icons/not-existing-icon.svg');
     $this->assertEquals($expected_result, $result, 'test behaviour for not existing files');
   }
 

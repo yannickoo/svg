@@ -48,7 +48,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
    * @covers ::generate
    */
   public function testGenerate() {
-    $svg_linking_renderer = new SvgLinkingRenderer();
+    $svg_renderer = new SvgLinkingRenderer();
     $svg_test_path = drupal_get_path('module', 'svg_test') . '/assets/stacks/sprite-stack.svg';
 
     // Read svg file and get its viewBox for comparison.
@@ -60,11 +60,11 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
 
     // Test plain rendering of linked svgs.
     $expected_result = '<svg viewBox="' . $view_box . '"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
-    $this->assertEquals($expected_result, $svg_linking_renderer->generate('stack#drupal-8'), 'linked svg rendering');
+    $this->assertEquals($expected_result, $svg_renderer->generate('stack#drupal-8'), 'linked svg rendering');
 
     // Test inline svg rendering with custom viewBox.
     $expected_result = '<svg viewBox="1 2 3 4"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
-    $result = $svg_linking_renderer->generate(
+    $result = $svg_renderer->generate(
       'stack#drupal-8',
       [
         'viewBox' => [
@@ -79,7 +79,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
 
     // Test inline svg rendering with custom attributes.
     $expected_result = '<svg viewBox="' . $view_box . '" class="test-class" data-test="test-value"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
-    $result = $svg_linking_renderer->generate(
+    $result = $svg_renderer->generate(
       'stack#drupal-8',
       [
         'attributes' => [
@@ -96,7 +96,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
     $view_box_array[3] += 100;
 
     $expected_result = '<svg viewBox="' . implode(' ', $view_box_array) . '"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
-    $result = $svg_linking_renderer->generate(
+    $result = $svg_renderer->generate(
       'stack#drupal-8',
       [
         'adjustWidth' => 50,
@@ -107,7 +107,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
 
     // Combined test of all techniques to ensure the combination is working.
     $expected_result = '<svg viewBox="1 2 53 104" data-test="test-value"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
-    $result = $svg_linking_renderer->generate(
+    $result = $svg_renderer->generate(
       'stack#drupal-8',
       [
         'adjustWidth' => 50,

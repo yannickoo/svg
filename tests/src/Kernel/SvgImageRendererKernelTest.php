@@ -56,14 +56,14 @@ class SvgImageRendererKernelTest extends KernelTestBase {
    * @covers ::generate
    */
   public function testGenerate() {
-    $svg_image = new SvgImageRenderer();
+    $svg_renderer = new SvgImageRenderer();
     $svg_test_path = drupal_get_path('module', 'svg_test');
     $expected_result = '<img src="' . base_path() . $svg_test_path . '/assets/icons/drupal-8.svg">';
 
-    $this->assertEquals($expected_result, $svg_image->generate('logo'), 'Use image from mapping configuration');
+    $this->assertEquals($expected_result, $svg_renderer->generate('logo'), 'Use image from mapping configuration');
 
     // Test if attributes can be set.
-    $result = $svg_image->generate('logo', ['attributes' => ['data-test' => 'test-value']]);
+    $result = $svg_renderer->generate('logo', ['attributes' => ['data-test' => 'test-value']]);
     $expected_result = '<img data-test="test-value" src="' . base_path() . $svg_test_path . '/assets/icons/drupal-8.svg">';
     $this->assertEquals($expected_result, $result, 'Add custom attributes to the image element');
   }
