@@ -2,4 +2,4 @@ mappings:
   logo:
     path: '@svg_test/assets/icons/drupal-8.svg'
   stack:
-      path: '@svg_test/assets/stacks/sprite-stack.svg'
+    path: '@svg_test/assets/stacks/sprite-stack.svg'

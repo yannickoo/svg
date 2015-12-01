@@ -85,8 +85,11 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
     $svg_base->resolveUri('logo#foo');
     $this->assertFalse($svg_base->parse(), 'Parse logo with non-existent identifier');
 
-    $svg_base->resolveUri('@svg_test/assets/stacks/sprite-stack.svg#drupal-8');
+    $svg_base->resolveUri('stack#drupal-8');
     $this->assertTrue($svg_base->parse(), 'Parse stack with identifier');
+
+    $svg_base->resolveUri('stack#drupal-9');
+    $this->assertFalse($svg_base->parse(), 'Parse stack with non-existent identifier');
   }
 
 }
