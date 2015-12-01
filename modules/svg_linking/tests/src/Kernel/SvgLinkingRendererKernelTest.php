@@ -51,7 +51,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
     $svg_renderer = new SvgLinkingRenderer();
     $svg_test_path = drupal_get_path('module', 'svg_test') . '/assets/stacks/sprite-stack.svg';
 
-    // Read svg file and get its viewBox for comparison.
+    // Read SVG file and get its viewBox for comparison.
     $svg = file_get_contents(DRUPAL_ROOT . '/' . $svg_test_path);
     $crawler = new Crawler();
     $crawler->addXmlContent($svg);

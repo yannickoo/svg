@@ -1,5 +1,5 @@
-name: SVG linking
+name: SVG Linking
 type: module
-description: Adds support for linking internal and external svgs
+description: Adds support for linking internal and external SVGs.
 core: 8.x
 package: Media
