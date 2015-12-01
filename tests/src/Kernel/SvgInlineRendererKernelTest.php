@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains \Drupal\Tests\svg\Kernel\SvgImageRenderKernelTest.
+ * Contains \Drupal\Tests\svg\Kernel\SvgInlineRendererKernelTest.
  */
 
 namespace Drupal\Tests\svg\Kernel;
@@ -14,7 +14,7 @@ use Drupal\svg\SvgInlineRenderer;
 /**
  * Kernel tests for SVG inline image renderer.
  *
- * @coversDefaultClass \Drupal\svg\SvgImageRenderer
+ * @coversDefaultClass \Drupal\svg\SvgInlineRenderer
  * @group svg
  */
 class SvgInlineRendererKernelTest extends KernelTestBase {
