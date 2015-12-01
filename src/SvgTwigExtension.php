@@ -21,7 +21,7 @@ class SvgTwigExtension extends \Twig_Extension {
         'generate'
       ], $options),
       new \Twig_SimpleFilter('inline_svg', [
-        new SvgInlineImageRenderer(),
+        new SvgInlineRenderer(),
         'generate'
       ], $options),
     ];

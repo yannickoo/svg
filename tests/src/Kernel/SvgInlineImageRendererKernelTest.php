@@ -9,15 +9,15 @@ namespace Drupal\Tests\svg\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Symfony\Component\DomCrawler\Crawler;
-use Drupal\svg\SvgInlineImageRenderer;
+use Drupal\svg\SvgInlineRenderer;
 
 /**
  * Kernel tests for SVG inline image renderer.
  *
- * @coversDefaultClass \Drupal\svg\SvgInlineImageRenderer
+ * @coversDefaultClass \Drupal\svg\SvgImageRenderer
  * @group svg
  */
-class SvgInlineImageRendererKernelTest extends KernelTestBase {
+class SvgInlineRendererKernelTest extends KernelTestBase {
 
   /**
    * Exempt from strict schema checking.
@@ -48,7 +48,7 @@ class SvgInlineImageRendererKernelTest extends KernelTestBase {
    * @covers ::generate
    */
   public function testGenerate() {
-    $svg_renderer = new SvgInlineImageRenderer();
+    $svg_renderer = new SvgInlineRenderer();
 
     // Read svg file and get its content for comparison.
     $svg = file_get_contents(DRUPAL_ROOT . '/' . drupal_get_path('module', 'svg_test') . '/assets/icons/drupal-8.svg');

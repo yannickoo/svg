@@ -2,12 +2,12 @@
 
 /**
  * @file
- * Contains \Drupal\svg\SvgInlineImageRenderer.
+ * Contains \Drupal\svg\SvgInlineRenderer.
  */
 
 namespace Drupal\svg;
 
-class SvgInlineImageRenderer extends SvgBaseRenderer {
+class SvgInlineRenderer extends SvgBaseRenderer {
 
   /**
    * Renders an inline SVG image.
