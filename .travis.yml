@@ -87,5 +87,5 @@ script:
   # Exit the build
   - if [ $TEST_EXIT -eq 0 ] && [ $TEST_OUTPUT -eq 0 ]; then exit 0; else exit 1; fi
 
-after_success:
+after_script:
   - bash <(curl -s https://codecov.io/bash)
