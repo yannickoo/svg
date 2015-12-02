@@ -112,6 +112,10 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
 
     $svg_base->resolveUri('not-found');
     $this->assertFalse($svg_base->parse(), 'Parse non-existing URI');
+
+    $svg_base->resolveUri('@svg_test/assets/icons/druplicon-no-viewbox.svg');
+    $svg_base->parse();
+    $this->assertEquals($svg_base->viewBox, [], 'Test SVG without viewBox attribute');
   }
 
 }
