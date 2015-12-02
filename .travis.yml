@@ -1,8 +1,15 @@
+sudo: false
 language: php
 
 php:
   - 5.5
   - 5.6
+
+addons:
+  apt:
+    packages:
+    - php5-cgi
+    - php5-mysql
 
 env:
   global:
@@ -20,9 +27,6 @@ cache:
     - $HOME/.composer/cache
 
 before_install:
-  # Ensure we have the latest sources.
-  - sudo apt-get -y update
-
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
   - source $HOME/.bashrc
@@ -46,9 +50,6 @@ before_install:
   - pip install --user codecov
 
 install:
-  # Basic PHP packages.
-  - sudo apt-get install -y --force-yes php5-cgi php5-mysql
-
   # Move the checked out module into the correct structure.
   - mkdir /tmp/$MODULE_NAME
   - mv * /tmp/$MODULE_NAME/
