@@ -25,6 +25,7 @@ cache:
   directories:
     - vendor
     - $HOME/.composer/cache
+    - $HOME/.composer/vendor
 
 before_install:
   # Composer.
