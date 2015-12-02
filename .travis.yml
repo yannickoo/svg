@@ -75,7 +75,7 @@ script:
 
   # Run the tests.
   - cd $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
-  - phpunit--group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/core/tests/bootstrap.php --coverage-clover=coverage.xml
+  - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/core/tests/bootstrap.php --coverage-clover=coverage.xml
 
 after_success:
   - codecov
