@@ -73,9 +73,9 @@ script:
   # Run code sniffer.
   - phpcs --report=full --standard=Drupal $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
 
-  # Run the tests
-  - cd $TRAVIS_BUILD_DIR/drupal/core
-  - phpunit --group svg -v --coverage-clover=coverage.xml $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
+  # Run the tests.
+  - cd $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
+  - phpunit--group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/core/tests/bootstrap.php --coverage-clover=coverage.xml
 
 after_success:
   - codecov
