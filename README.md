@@ -1,4 +1,4 @@
-# SVG [![Build Status](https://img.shields.io/travis/yannickoo/svg/feature%2Fdraft.svg)](https://travis-ci.org/yannickoo/svg) [![Coverage Status](https://coveralls.io/repos/yannickoo/svg/badge.svg?branch=8.x-1.x&service=github)](https://coveralls.io/github/yannickoo/svg?branch=8.x-1.x)
+# SVG [![Build Status](https://img.shields.io/travis/yannickoo/svg/feature%2Fdraft.svg)](https://travis-ci.org/yannickoo/svg) [![Coverage Status](https://img.shields.io/coveralls/yannickoo/svg.svg)](https://coveralls.io/github/yannickoo/svg?branch=8.x-1.x)
 > Working with SVG in Drupal 8 just got easier :kiss::iphone:
 
 ## Features
