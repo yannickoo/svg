@@ -12,7 +12,7 @@
   </php>
   <testsuites>
     <testsuite name="kernel">
-      <directory>./tests/src/KernelTests</directory>
+      <directory>./tests/src/Kernel</directory>
       <directory>./modules/*/tests/src/Kernel</directory>
     </testsuite>
   </testsuites>
