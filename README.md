@@ -1,5 +1,4 @@
-# SVG
-[![Build Status](https://img.shields.io/travis/yannickoo/svg/feature%2Fdraft.svg)](https://travis-ci.org/yannickoo/svg)
+# SVG [![Build Status](https://img.shields.io/travis/yannickoo/svg/feature%2Fdraft.svg)](https://travis-ci.org/yannickoo/svg)
 
 > Working with SVG in Drupal 8 just got easier :kiss::iphone:
 
