@@ -4,23 +4,24 @@
 
 ## Features
 
-### Implemented
-* Twig filter to render a svg as an image tag
-* Twig filter to render a svg inline within the page markup
+### Implemented after first sprint in Vienna & Munich
+* Twig filter to render a SVG as an image tag
+* Twig filter to render a SVG inline within the page markup
 * Multiple manipulation options
 * File-Mappings to avoid typing of the whole path every time.
 * Tests, Tests, Tests!
 
-### ToDo
+### ToDo - get it online :rocket:
 
-* xlink external ie polyfill
-* submodule for responsive wrapping
-* field formatters
-* view formatters
-* decide what part of the code is abstractable to symfony
-* full test coverage
-* description:
-  * usage examples with cross browser testing results <http://axe312ger.github.io/icon-methods/method-comparison.html>
-  * show possibilites of css only implementations <http://pavliko.github.io/postcss-svg/> & <https://github.com/TrySound/postcss-inline-svg>
-  * Short info how to prepare svgs for the website
-  * Tutorial how to create sprites/stacks
+* [ ] Polyfill for IE for use external xlink support. Like svg4everybody, just in fast.
+* [ ] Submodule for responsive wrapping
+* [ ] Field formatters
+* [ ] View formatters
+* [ ] Decide what part of the code is abstractable into a symfony plugin
+* [ ] Full test coverage :octocat:
+* [ ] Add a proper module description to Drupal.org:
+  * [ ] Usage examples with cross browser testing results <http://axe312ger.github.io/icon-methods/method-comparison.html>
+  * [ ] Short info how to prepare svgs for the website
+  * [ ] Tutorial how to create sprites/stacks
+  * [ ] Show possibilites of css only implementations <http://pavliko.github.io/postcss-svg/> & <https://github.com/TrySound/postcss-inline-svg>
+  * [ ] Remove todos from README.md and clear it up
