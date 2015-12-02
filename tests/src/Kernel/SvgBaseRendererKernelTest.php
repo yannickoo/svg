@@ -69,6 +69,12 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
     foreach ($assertions as $assertion) {
       $this->assertEquals($expected_result, $assertion['output'], $assertion['message']);
     }
+
+    $stack_uri_expected = $svg_test_path . '/assets/stacks/sprite-stack.svg';
+    $stack_uri = $svg_base->resolveUri('stack#drupal-8');
+
+    $this->assertEquals($svg_base->identifier, 'drupal-8', 'Test identifier detection');
+    $this->assertEquals($stack_uri, $svg_base->resolveUri('stack#drupal-8'), 'Use stack as URI');
   }
 
   /**

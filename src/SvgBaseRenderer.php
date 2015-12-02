@@ -68,6 +68,12 @@ class SvgBaseRenderer implements SvgRendererInterface {
     $this->mappings = $config->get('mappings');
   }
 
+  public function __get($property) {
+    if (property_exists($this, $property)) {
+      return $this->$property;
+    }
+  }
+
   /**
    * {@inheritdoc}
    */
