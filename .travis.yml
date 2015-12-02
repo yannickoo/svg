@@ -48,7 +48,7 @@ before_install:
   - phpenv rehash
 
   # Coverage Reports
-  - pip install --user codecov
+  - pip install --user coveralls
 
 install:
   # Move the checked out module into the correct structure.
@@ -79,4 +79,4 @@ script:
   - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=coverage.xml -v --debug
 
 after_success:
-  - codecov
+  - coveralls
