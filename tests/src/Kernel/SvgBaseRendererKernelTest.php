@@ -109,6 +109,9 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
 
     $svg_base->resolveUri('stack#drupal-9');
     $this->assertFalse($svg_base->parse(), 'Parse stack with non-existent identifier');
+
+    $svg_base->resolveUri('not-found');
+    $this->assertFalse($svg_base->parse(), 'Parse non-existing URI');
   }
 
 }
