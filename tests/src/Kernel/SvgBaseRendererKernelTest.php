@@ -42,6 +42,19 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
   }
 
   /**
+   * Tests constructing.
+   *
+   * @covers ::__construct
+   */
+  public function testConstruct() {
+    $svg_base = new SvgBaseRenderer();
+    $mappings = $svg_base->mappings;
+    $config = \Drupal::config('svg.config');
+
+    $this->assertEquals($mappings, $config->get('mappings'), 'Constructor test');
+  }
+
+  /**
    * Tests URI resolving.
    *
    * @covers ::resolveUri
@@ -73,8 +86,8 @@ class SvgBaseRendererKernelTest extends KernelTestBase {
     $stack_uri_expected = $svg_test_path . '/assets/stacks/sprite-stack.svg';
     $stack_uri = $svg_base->resolveUri('stack#drupal-8');
 
+    $this->assertEquals($stack_uri, $stack_uri_expected, 'Use stack as URI');
     $this->assertEquals($svg_base->identifier, 'drupal-8', 'Test identifier detection');
-    $this->assertEquals($stack_uri, $svg_base->resolveUri('stack#drupal-8'), 'Use stack as URI');
   }
 
   /**

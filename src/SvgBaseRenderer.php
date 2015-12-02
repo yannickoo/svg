@@ -78,6 +78,15 @@ class SvgBaseRenderer implements SvgRendererInterface {
   }
 
   /**
+   * Implements the magic method for setting object properties.
+   */
+  public function __set($property, $value) {
+    if (property_exists($this, $property)) {
+      $this->$property = $value;
+    }
+  }
+
+  /**
    * {@inheritdoc}
    */
   public function resolveUri($uri) {
