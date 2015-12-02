@@ -12,7 +12,7 @@ env:
     - DRUPAL_VERSION='8.0.x'
     - PHPCS_VERSION='2.0.*@dev'
     - CODER_VERSION='8.2.0-beta1'
-    - SIMPLETEST_DB='mysql://root127.0.0.1/drupal'
+    - SIMPLETEST_DB='mysql://root@127.0.0.1/drupal'
 
 cache:
   directories:
