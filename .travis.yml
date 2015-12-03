@@ -31,9 +31,6 @@ cache:
   directories:
     - $HOME/.composer/cache
 
-before_cache:
-  - rm -f $HOME/.cache/pip/log/debug.log
-
 before_install:
   # Composer.
   - sed -i '1i export PATH="$HOME/.composer/vendor/bin:$PATH"' $HOME/.bashrc
