@@ -18,7 +18,7 @@ env:
     - DRUPAL_REPO='git://drupalcode.org/project/drupal.git'
     - DRUPAL_VERSION='8.0.x'
     - PHPCS_VERSION='2.4.0'
-    - CODER_VERSION='8.2.0-beta1'
+    - CODER_VERSION='8.x-2.5'
     - SIMPLETEST_DB='mysql://root@127.0.0.1/drupal'
 
 cache:
