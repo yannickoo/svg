@@ -19,6 +19,7 @@ env:
     - DRUPAL_VERSION='8.0.x'
     - PHPCS_VERSION='2.4.0'
     - CODER_VERSION='8.2.5'
+    - COVERALLS_VERSION='v0.6.1'
     - SIMPLETEST_DB='mysql://root@127.0.0.1/drupal'
 
 cache:
@@ -38,7 +39,7 @@ before_install:
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 
   # Coveralls.io
-  - composer global require satooshi/php-coveralls:* --dev
+  - composer global require satooshi/php-coveralls:$COVERALLS_VERSION
 
   # Ensure the PHP environment is ready.
   - phpenv rehash
