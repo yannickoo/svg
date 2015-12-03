@@ -81,7 +81,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
       'attributes' => [
         'class' => 'test-class',
         'data-test' => 'test-value',
-      ]
+      ],
     ]);
     $this->assertEquals($expected_result, $result, 'linked svg rendering with custom attributes');
 
