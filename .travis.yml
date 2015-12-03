@@ -67,7 +67,7 @@ script:
   - phpcs --report=full --standard=Drupal --ignore=vendor $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
 
   # Run the tests.
-  - phpunit --debug --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-text
+  - phpunit --debug --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php
 
 after_success:
   - php vendor/bin/coveralls -v
