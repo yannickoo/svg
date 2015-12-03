@@ -64,8 +64,11 @@ install:
   - mv /tmp/$MODULE_NAME drupal/modules/
 
 before_script:
+  # Coveralls.io library
+  - composer require satooshi/php-coveralls:* --dev
+
   # Create log directory for coverage report.
-  - mkdir -p build/logs
+  - mkdir -p build/coverage
 
   # This fixes a fail when install Drupal.
   - echo 'sendmail_path = /bin/true' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
@@ -85,4 +88,4 @@ script:
   - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=build/logs/clover.xml -v --debug
 
 after_success:
-  - coveralls
+  - php vendor/bin/coveralls -v -c .coveralls.yml
