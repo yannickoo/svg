@@ -70,7 +70,7 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
         'y' => 2,
         'width' => 3,
         'height' => 4,
-      ]
+      ],
     ]);
     $this->assertEquals($expected_result, $result, 'inline svg rendering with custom viewBox');
 
