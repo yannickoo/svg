@@ -10,7 +10,7 @@ namespace Drupal\svg;
 use Drupal\Core\Template\Attribute;
 
 /**
- * Class SvgImageRenderer
+ * Class SvgImageRenderer.
  *
  * @package Drupal\svg
  */

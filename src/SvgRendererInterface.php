@@ -8,7 +8,7 @@
 namespace Drupal\svg;
 
 /**
- * Interface SvgRendererInterface
+ * Interface SvgRendererInterface.
  *
  * @package Drupal\svg
  */

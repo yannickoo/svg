@@ -8,7 +8,7 @@
 namespace Drupal\svg;
 
 /**
- * Class SvgTwigExtension
+ * Class SvgTwigExtension.
  *
  * @package Drupal\svg
  */

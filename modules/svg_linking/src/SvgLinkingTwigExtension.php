@@ -8,7 +8,7 @@
 namespace Drupal\svg_linking;
 
 /**
- * Class SvgLinkingTwigExtension
+ * Class SvgLinkingTwigExtension.
  *
  * @package Drupal\svg_linking
  */

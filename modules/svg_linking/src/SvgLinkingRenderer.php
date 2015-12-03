@@ -10,7 +10,7 @@ namespace Drupal\svg_linking;
 use Drupal\svg\SvgBaseRenderer;
 
 /**
- * Class SvgLinkingRenderer
+ * Class SvgLinkingRenderer.
  *
  * @package Drupal\svg_linking
  */
