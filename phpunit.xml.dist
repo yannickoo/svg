@@ -29,7 +29,7 @@
   </logging>
 
   <filter>
-    <whitelist>
+    <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">./src</directory>
       <directory suffix=".php">./modules/*/src</directory>
       <!-- By definition test classes have no tests. -->
