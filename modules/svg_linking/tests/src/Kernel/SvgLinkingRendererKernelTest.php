@@ -12,7 +12,7 @@ use Symfony\Component\DomCrawler\Crawler;
 use Drupal\svg_linking\SvgLinkingRenderer;
 
 /**
- * Kernel tests for SVG linked renderer.
+ * Kernel tests for SVG linking renderer.
  *
  * @coversDefaultClass \Drupal\svg_linking\SvgLinkingRenderer
  *
