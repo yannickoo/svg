@@ -25,7 +25,7 @@ env:
 cache:
   directories:
     - $HOME/.composer/cache
-    - vendor
+    - $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME/vendor
 
 before_install:
   # Composer.
