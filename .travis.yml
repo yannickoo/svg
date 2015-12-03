@@ -67,7 +67,7 @@ script:
   - phpcs --report=full --standard=Drupal --ignore=vendor $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
 
   # Run the tests.
-  - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-text --coverage-clover=build/logs/clover.xml --debug
+  - phpunit --debug --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-text --coverage-clover build/logs/clover.xml
 
 after_success:
   - php vendor/bin/coveralls -v -c .coveralls.yml
