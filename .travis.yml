@@ -30,7 +30,6 @@ env:
 cache:
   directories:
     - $HOME/.composer/cache
-    - $HOME/.cache/pip
 
 before_cache:
   - rm -f $HOME/.cache/pip/log/debug.log
@@ -49,12 +48,6 @@ before_install:
 
   # Ensure the PHP environment is ready.
   - phpenv rehash
-
-  # Upgrade pip
-  - pip install --user 'requests[security]'
-
-  # Coverage Reports
-  - pip install --user coveralls
 
 install:
   # Move the checked out module into the correct structure.
