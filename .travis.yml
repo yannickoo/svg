@@ -45,7 +45,7 @@ before_install:
   - phpenv rehash
 
   # Upgrade pip
-  - pip install --user --upgrade pip
+  - pip install --user 'requests[security]'
 
   # Coverage Reports
   - pip install --user coveralls
