@@ -21,7 +21,7 @@ class SvgBaseRenderer implements SvgRendererInterface {
    *
    * @var array
    */
-  protected $mappings;
+  public $mappings;
 
   /**
    * The URI of the image.
@@ -49,14 +49,14 @@ class SvgBaseRenderer implements SvgRendererInterface {
    *
    * @var string
    */
-  protected $identifier = '';
+  public $identifier = '';
 
   /**
    * The viewBox of the SVG.
    *
    * @var array
    */
-  protected $viewBox = [];
+  public $viewBox = [];
 
   /**
    * A Crawler object containing target element.
@@ -71,24 +71,6 @@ class SvgBaseRenderer implements SvgRendererInterface {
   public function __construct() {
     $config = \Drupal::config('svg.config');
     $this->mappings = $config->get('mappings');
-  }
-
-  /**
-   * Implements the magic method for getting object properties.
-   */
-  public function __get($property) {
-    if (property_exists($this, $property)) {
-      return $this->$property;
-    }
-  }
-
-  /**
-   * Implements the magic method for setting object properties.
-   */
-  public function __set($property, $value) {
-    if (property_exists($this, $property)) {
-      $this->$property = $value;
-    }
   }
 
   /**
