@@ -72,4 +72,4 @@ script:
   - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=build/logs/clover.xml -v --debug
 
 after_success:
-  - php vendor/bin/coveralls -v -c .coveralls.yml
+  - php ~/.composer/vendor/bin/coveralls -v -c .coveralls.yml
