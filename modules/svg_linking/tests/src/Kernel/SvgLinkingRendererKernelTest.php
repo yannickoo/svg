@@ -15,6 +15,7 @@ use Drupal\svg_linking\SvgLinkingRenderer;
  * Kernel tests for SVG linked renderer.
  *
  * @coversDefaultClass \Drupal\svg_linking\SvgLinkingRenderer
+ *
  * @group svg
  */
 class SvgLinkingRendererKernelTest extends KernelTestBase {
@@ -97,8 +98,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
 
     $expected_result = '<svg viewBox="' . implode(' ', $view_box_array) . '"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
     $result = $svg_renderer->generate(
-      'stack#drupal-8',
-      [
+      'stack#drupal-8', [
         'adjustWidth' => 50,
         'adjustHeight' => 100,
       ]
@@ -108,8 +108,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
     // Combined test of all techniques to ensure the combination is working.
     $expected_result = '<svg viewBox="1 2 53 104" data-test="test-value"><use xlink:href="' . base_path() . $svg_test_path . '#drupal-8"></use></svg>';
     $result = $svg_renderer->generate(
-      'stack#drupal-8',
-      [
+      'stack#drupal-8', [
         'adjustWidth' => 50,
         'adjustHeight' => 100,
         'attributes' => [
@@ -120,7 +119,7 @@ class SvgLinkingRendererKernelTest extends KernelTestBase {
           'y' => 2,
           'width' => 3,
           'height' => 4,
-        ]
+        ],
       ]
     );
     $this->assertEquals($expected_result, $result, 'linked svg rendering with all manipulation techniques');

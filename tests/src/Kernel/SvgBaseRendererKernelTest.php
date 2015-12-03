@@ -14,6 +14,7 @@ use Drupal\svg\SvgBaseRenderer;
  * Kernel tests for SVG base renderer.
  *
  * @coversDefaultClass \Drupal\svg\SvgBaseRenderer
+ *
  * @group svg
  */
 class SvgBaseRendererKernelTest extends KernelTestBase {

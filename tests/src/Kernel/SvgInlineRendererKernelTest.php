@@ -15,6 +15,7 @@ use Drupal\svg\SvgInlineRenderer;
  * Kernel tests for SVG inline image renderer.
  *
  * @coversDefaultClass \Drupal\svg\SvgInlineRenderer
+ *
  * @group svg
  */
 class SvgInlineRendererKernelTest extends KernelTestBase {
@@ -70,7 +71,7 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
           'x' => 1,
           'y' => 2,
           'width' => 3,
-          'height' => 4
+          'height' => 4,
         ]
       ]
     );
@@ -79,12 +80,11 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
     // Test inline svg rendering with custom attributes.
     $expected_result = '<svg viewBox="' . $view_box . '" class="test-class" data-test="test-value">' . $crawler->html() . '</svg>';
     $result = $svg_renderer->generate(
-      '@svg_test/assets/icons/drupal-8.svg',
-      [
+      '@svg_test/assets/icons/drupal-8.svg', [
         'attributes' => [
           'class' => 'test-class',
           'data-test' => 'test-value',
-        ]
+        ],
       ]
     );
     $this->assertEquals($expected_result, $result, 'inline svg rendering with custom attributes');
@@ -119,8 +119,8 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
           'y' => 2,
           'width' => 3,
           'height' => 4,
-        ]
-      ]
+        ],
+      ],
     );
     $this->assertEquals($expected_result, $result, 'inline svg rendering with all manipulation techniques');
 

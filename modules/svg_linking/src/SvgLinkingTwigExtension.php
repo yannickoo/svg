@@ -18,7 +18,7 @@ class SvgLinkingTwigExtension extends \Twig_Extension {
     return [
       new \Twig_SimpleFilter('linked_svg', [
         new SvgLinkingRenderer(),
-        'generate'
+        'generate',
       ], $options),
     ];
   }

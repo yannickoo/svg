@@ -18,11 +18,11 @@ class SvgTwigExtension extends \Twig_Extension {
     return [
       new \Twig_SimpleFilter('svg', [
         new SvgImageRenderer(),
-        'generate'
+        'generate',
       ], $options),
       new \Twig_SimpleFilter('inline_svg', [
         new SvgInlineRenderer(),
-        'generate'
+        'generate',
       ], $options),
     ];
   }

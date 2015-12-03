@@ -65,7 +65,7 @@ class ConfigForm extends ConfigFormBase {
     $form['example']['description'] = [
       '#prefix' => '<p>',
       '#suffix' => '</p>',
-      '#markup' => $this->t('Each SVG file name has a path. Use <code>@theme_name</code> for referring to a theme.')
+      '#markup' => $this->t('Each SVG file name has a path. Use <code>@theme_name</code> for referring to a theme.'),
     ];
     $form['example']['code'] = [
       '#prefix' => '<pre>',
@@ -104,4 +104,5 @@ class ConfigForm extends ConfigFormBase {
 
     parent::submitForm($form, $form_state);
   }
+
 }

@@ -90,4 +90,5 @@ class SvgLinkingRenderer extends SvgBaseRenderer {
 
     return trim($dom->saveHTML());
   }
+
 }

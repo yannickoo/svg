@@ -83,4 +83,5 @@ class SvgInlineRenderer extends SvgBaseRenderer {
 
     return trim($dom->saveHTML());
   }
+
 }

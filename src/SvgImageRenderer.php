@@ -34,4 +34,5 @@ class SvgImageRenderer extends SvgBaseRenderer {
 
     return '<img' . new Attribute($options['attributes']) . '>';
   }
+
 }
