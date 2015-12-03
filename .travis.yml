@@ -44,6 +44,9 @@ before_install:
   # Ensure the PHP environment is ready.
   - phpenv rehash
 
+  # Upgrade pip
+  - pip install --upgrade pip
+
   # Coverage Reports
   - pip install --user coveralls
 
