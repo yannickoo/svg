@@ -37,8 +37,8 @@ before_install:
   - composer global require drupal/coder:$CODER_VERSION
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 
-  # Coveralls
-  - composer require satooshi/php-coveralls:* --dev
+  # Coveralls.io
+  - composer global require satooshi/php-coveralls:* --dev
 
   # Ensure the PHP environment is ready.
   - phpenv rehash
