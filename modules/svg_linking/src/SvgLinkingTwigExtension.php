@@ -7,6 +7,11 @@
 
 namespace Drupal\svg_linking;
 
+/**
+ * Class SvgLinkingTwigExtension
+ *
+ * @package Drupal\svg_linking
+ */
 class SvgLinkingTwigExtension extends \Twig_Extension {
 
   /**

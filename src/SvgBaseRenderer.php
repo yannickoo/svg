@@ -9,6 +9,11 @@ namespace Drupal\svg;
 
 use Symfony\Component\DomCrawler\Crawler;
 
+/**
+ * Class SvgBaseRenderer
+ *
+ * @package Drupal\svg
+ */
 class SvgBaseRenderer implements SvgRendererInterface {
 
   /**

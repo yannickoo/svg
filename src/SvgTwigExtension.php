@@ -7,6 +7,11 @@
 
 namespace Drupal\svg;
 
+/**
+ * Class SvgTwigExtension
+ *
+ * @package Drupal\svg
+ */
 class SvgTwigExtension extends \Twig_Extension {
 
   /**

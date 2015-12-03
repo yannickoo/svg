@@ -9,6 +9,11 @@ namespace Drupal\svg;
 
 use Drupal\Core\Template\Attribute;
 
+/**
+ * Class SvgImageRenderer
+ *
+ * @package Drupal\svg
+ */
 class SvgImageRenderer extends SvgBaseRenderer {
 
   /**

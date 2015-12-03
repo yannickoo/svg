@@ -8,7 +8,9 @@
 namespace Drupal\svg;
 
 /**
- * Provides an interface for assembly and dispatch of contact mail messages.
+ * Interface SvgRendererInterface
+ *
+ * @package Drupal\svg
  */
 interface SvgRendererInterface {
 

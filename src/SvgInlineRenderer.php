@@ -7,6 +7,11 @@
 
 namespace Drupal\svg;
 
+/**
+ * Class SvgInlineRenderer
+ *
+ * @package Drupal\svg
+ */
 class SvgInlineRenderer extends SvgBaseRenderer {
 
   /**
