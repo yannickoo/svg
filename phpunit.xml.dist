@@ -14,7 +14,6 @@
     <testsuite name="kernel">
       <directory>./tests/src/Kernel</directory>
       <directory>./modules/*/tests/src/Kernel</directory>
-      <exclude>./vendor</exclude>
     </testsuite>
   </testsuites>
   <listeners>
