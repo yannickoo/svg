@@ -37,6 +37,9 @@ before_install:
   - composer global require drupal/coder:$CODER_VERSION
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
 
+  # Coveralls
+  - composer require satooshi/php-coveralls:* --dev
+
   # Ensure the PHP environment is ready.
   - phpenv rehash
 
@@ -48,9 +51,6 @@ install:
   - mv /tmp/$MODULE_NAME drupal/modules/
 
 before_script:
-  # Coveralls.io library
-  - composer require satooshi/php-coveralls:* --dev
-
   # Create log directory for coverage report.
   - mkdir -p build/coverage
 
