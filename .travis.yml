@@ -19,7 +19,7 @@ env:
     - DRUPAL_VERSION='8.0.x'
     - PHPCS_VERSION='2.4.0'
     - CODER_VERSION='8.2.5'
-    - COVERALLS_VERSION='v0.6.1'
+    - COVERALLS_VERSION='0.6.1'
     - SIMPLETEST_DB='mysql://root@127.0.0.1/drupal'
 
 cache:
@@ -37,9 +37,6 @@ before_install:
   # Coder.
   - composer global require drupal/coder:$CODER_VERSION
   - ln -s ~/.composer/vendor/drupal/coder/coder_sniffer/Drupal ~/.composer/vendor/squizlabs/php_codesniffer/CodeSniffer/Standards/
-
-  # Coveralls.io
-  - composer global require satooshi/php-coveralls:$COVERALLS_VERSION
 
   # Ensure the PHP environment is ready.
   - phpenv rehash
@@ -61,16 +58,18 @@ before_script:
   # Mysql might time out for long tests, increase the wait timeout.
   - mysql -e 'SET @@GLOBAL.wait_timeout=1200'
 
-  # Install Drupal and enable the required modules (including this one).
   - mysql -e 'create database drupal;'
+
+  # Coveralls.io
+  - cd $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
+  - composer require satooshi/php-coveralls:$COVERALLS_VERSION
 
 script:
   # Run code sniffer.
   - phpcs --report=full --standard=Drupal $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
 
   # Run the tests.
-  - cd $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
-  - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=build/logs/clover.xml -v --debug
+  - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=build/logs/clover.xml --debug
 
 after_success:
-  - php ~/.composer/vendor/bin/coveralls -v -c $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME/.coveralls.yml
+  - php vendor/bin/coveralls
