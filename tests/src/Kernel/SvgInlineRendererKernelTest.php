@@ -64,29 +64,24 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
 
     // Test inline svg rendering with custom viewBox.
     $expected_result = '<svg viewBox="1 2 3 4">' . $crawler->html() . '</svg>';
-    $result = $svg_renderer->generate(
-      '@svg_test/assets/icons/drupal-8.svg',
-      [
-        'viewBox' => [
-          'x' => 1,
-          'y' => 2,
-          'width' => 3,
-          'height' => 4,
-        ]
+    $result = $svg_renderer->generate('@svg_test/assets/icons/drupal-8.svg', [
+      'viewBox' => [
+        'x' => 1,
+        'y' => 2,
+        'width' => 3,
+        'height' => 4,
       ]
-    );
+    ]);
     $this->assertEquals($expected_result, $result, 'inline svg rendering with custom viewBox');
 
     // Test inline svg rendering with custom attributes.
     $expected_result = '<svg viewBox="' . $view_box . '" class="test-class" data-test="test-value">' . $crawler->html() . '</svg>';
-    $result = $svg_renderer->generate(
-      '@svg_test/assets/icons/drupal-8.svg', [
-        'attributes' => [
-          'class' => 'test-class',
-          'data-test' => 'test-value',
-        ],
-      ]
-    );
+    $result = $svg_renderer->generate('@svg_test/assets/icons/drupal-8.svg', [
+      'attributes' => [
+        'class' => 'test-class',
+        'data-test' => 'test-value',
+      ],
+    ]);
     $this->assertEquals($expected_result, $result, 'inline svg rendering with custom attributes');
 
     // Test inline svg rendering with adjusted viewBox.
@@ -106,22 +101,19 @@ class SvgInlineRendererKernelTest extends KernelTestBase {
 
     // Combined test of all techniques to ensure the combination is working.
     $expected_result = '<svg viewBox="1 2 53 104" data-test="test-value">' . $crawler->html() . '</svg>';
-    $result = $svg_renderer->generate(
-      '@svg_test/assets/icons/drupal-8.svg',
-      [
-        'adjustWidth' => 50,
-        'adjustHeight' => 100,
-        'attributes' => [
-          'data-test' => 'test-value',
-        ],
-        'viewBox' => [
-          'x' => 1,
-          'y' => 2,
-          'width' => 3,
-          'height' => 4,
-        ],
+    $result = $svg_renderer->generate('@svg_test/assets/icons/drupal-8.svg', [
+      'adjustWidth' => 50,
+      'adjustHeight' => 100,
+      'attributes' => [
+        'data-test' => 'test-value',
       ],
-    );
+      'viewBox' => [
+        'x' => 1,
+        'y' => 2,
+        'width' => 3,
+        'height' => 4,
+      ],
+    ]);
     $this->assertEquals($expected_result, $result, 'inline svg rendering with all manipulation techniques');
 
     // Test if generator returns an empty string if svg file can not be found.
