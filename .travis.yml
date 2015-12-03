@@ -24,6 +24,7 @@ env:
 cache:
   directories:
     - $HOME/.composer/cache
+    - $HOME/.cache/pip
 
 before_install:
   # Composer.
