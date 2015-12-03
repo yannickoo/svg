@@ -67,7 +67,7 @@ before_script:
 
 script:
   # Run code sniffer.
-  - phpcs --report=full --standard=Drupal $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
+  - phpcs --report=full --standard=Drupal --ignore=vendor $TRAVIS_BUILD_DIR/drupal/modules/$MODULE_NAME
 
   # Run the tests.
   - phpunit --group $MODULE_TEST_GROUP --bootstrap $TRAVIS_BUILD_DIR/drupal/core/tests/bootstrap.php --coverage-clover=build/logs/clover.xml --debug
