@@ -25,7 +25,6 @@ cache:
   directories:
     - vendor
     - $HOME/.composer/cache
-    - $HOME/.composer/vendor
 
 before_install:
   # Composer.
@@ -47,7 +46,7 @@ before_install:
   - phpenv rehash
 
   # Coverage Reports
-  - pip install --user 'requests[security]'
+  - pip install --user ndg-httpsclient
   - pip install --user coveralls
 
 install:
