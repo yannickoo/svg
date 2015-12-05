@@ -10,9 +10,9 @@
 
   <testsuites>
     <testsuite name="kernel">
-      <directory>tests/src/Kernel</directory>
-      <directory>modules/*/tests/src/Kernel</directory>
-      <exclude>vendor</exclude>
+      <directory>./tests/src/Kernel</directory>
+      <directory>./modules/*/tests/src/Kernel</directory>
+      <exclude>./vendor</exclude>
     </testsuite>
   </testsuites>
 
@@ -31,9 +31,9 @@
       <directory suffix=".php">./modules/svg_linking/src</directory>
 
       <exclude>
-        <directory suffix="Test.php">.</directory>
-        <directory suffix="TestBase.php">.</directory>
-        <directory>vendor</directory>
+        <directory suffix="Test.php">./</directory>
+        <directory suffix="TestBase.php">./</directory>
+        <directory>./vendor</directory>
       </exclude>
      </whitelist>
   </filter>
