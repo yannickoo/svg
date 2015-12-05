@@ -26,12 +26,12 @@
   </logging>
 
   <filter>
-    <whitelist addUncoveredFilesFromWhitelist="true">
+    <whitelist processUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">./src</directory>
 
       <exclude>
-        <directory suffix="Test.php">./</directory>
-        <directory suffix="TestBase.php">./</directory>
+        <directory suffix="Test.php">.</directory>
+        <directory suffix="TestBase.php">.</directory>
         <directory>vendor</directory>
       </exclude>
      </whitelist>
