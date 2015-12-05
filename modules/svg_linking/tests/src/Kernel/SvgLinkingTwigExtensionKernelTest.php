@@ -45,7 +45,7 @@ class SvgLinkingTwigExtensionKernelTest extends KernelTestBase {
    * @covers ::getName
    */
   public function testName() {
-    $extension = new SvgLinkingRenderer();
+    $extension = new SvgLinkingTwigExtension();
 
     $this->assertEquals('svg_linking.twig.svg_linking_extension', $extension->getName(), 'Test Twig extension name');
   }
