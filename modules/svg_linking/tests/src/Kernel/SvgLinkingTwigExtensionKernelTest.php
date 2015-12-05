@@ -9,6 +9,7 @@ namespace Drupal\Tests\svg_linking\Kernel;
 
 use Drupal\KernelTests\KernelTestBase;
 use Drupal\svg_linking\SvgLinkingRenderer;
+use Drupal\svg_linking\SvgLinkingTwigExtension;
 
 /**
  * Unit tests for SVG Twig extensions.
@@ -25,7 +26,7 @@ class SvgLinkingTwigExtensionKernelTest extends KernelTestBase {
    * @covers ::getFilters
    */
   public function testFilters() {
-    $extension = new SvgLinkingRenderer();
+    $extension = new SvgLinkingTwigExtension();
     $options = ['is_safe' => ['html']];
 
     $filters = [
