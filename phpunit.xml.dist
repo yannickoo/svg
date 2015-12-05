@@ -26,8 +26,9 @@
   </logging>
 
   <filter>
-    <whitelist processUncoveredFilesFromWhitelist="true">
+    <whitelist addUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">./src</directory>
+      <directory suffix=".php">./modules/svg_linking/src</directory>
 
       <exclude>
         <directory suffix="Test.php">.</directory>
